@@ -13,7 +13,8 @@ const EditProfile = (props) => {
     const INITIAL_STATE = {
         name: user && user.displayName,
         email: user && user.email,
-        password: ""
+        newPassword: "",
+        currentPassword: ""
     }
 
     const {
@@ -33,7 +34,7 @@ const EditProfile = (props) => {
             await user.reauthenticateWithCredential(credential);
             console.log('Reauthentication Successful');
         } catch(err) {
-            console.error("Reauthentication Error", err);
+            console.error("Profile Update Error", err);
             toast(err.message);
         }
     }
@@ -50,7 +51,7 @@ const EditProfile = (props) => {
 
     async function authenticateUser() {
         setBusy(true);
-        const {name,email,currentPassword, newPassword} = values;
+        const {name,email,currentPassword,newPassword} = values;
         try {
             await reauthenticate(user.email, currentPassword);
             await updateProfileItems(name, email, newPassword);
