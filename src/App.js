@@ -23,12 +23,13 @@ import Trending from "./pages/Trending";
 import Submit from "./pages/Submit";
 import Search from "./pages/Search";
 import Profile from "./pages/Profile";
-import EditProfile from "./pages/EditProfile"
-import Login from "./pages/Login"
-import Signup from "./pages/Signup"
-import Forgot from "./pages/Forgot"
-import useAuth from "./hooks/useAuth"
-import UserContext from "./contexts/UserContexts"
+import EditProfile from "./pages/EditProfile";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Forgot from "./pages/Forgot";
+import Product from "./pages/Product";
+import useAuth from "./hooks/useAuth";
+import UserContext from "./contexts/UserContexts";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -71,6 +72,7 @@ const App = () => {
               <Route path="/register" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/forgot" component={Forgot} />
+              <Route path="/product/:productId" component={Product} />
               <Route component={() => <Redirect to="/home" />} />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
